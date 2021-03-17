@@ -13,20 +13,20 @@ module.exports.run = async (client, msg, args, config) => {
                 }, 5000);
             });
     } else {
-        fs.readFile('./accounts/hulu.txt', 'utf8', function(err, data) {
+        fs.readFile('./accounts/cod.txt', 'utf8', function(err, data) {
             if (err) throw err;
 
             data = data + '';
             var lines = data.split('\n');
             let account = lines[Math.floor(Math.random() * 1)];
 
-            fs.writeFile('./accounts/hulu.txt', lines.slice(1).join('\n'), function(err) {
+            fs.writeFile('./accounts/cod.txt', lines.slice(1).join('\n'), function(err) {
                 if(err) throw err;
             });
 
             let embed = new Discord.RichEmbed()
             .addField('Support Server', `https://discord.gg/CDVDzWF`)
-            .addField('Hulu account',`\n**${account}**`)
+            .addField('call of duty account',`\n**${account}**`)
             .setThumbnail('https://www.google.ro/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjPtNDLt43nAhXKAewKHYh4D08QjRx6BAgBEAQ&url=https%3A%2F%2Fdotesports.com%2Fcounter-strike%2Fnews%2Fcomplexitys-straightline-decline-11692&psig=AOvVaw3pfBs1U93XQFV2aa4IeJ7h&ust=1579446668668487')
             .setColor("#363940")
             .setFooter('Bot made by airpod')
@@ -34,7 +34,7 @@ module.exports.run = async (client, msg, args, config) => {
 
             msg.author.send(embed);
 
-            msg.reply('1x **Hulu** Account sent in DM!')
+            msg.reply('1x **call of duty** Account sent in DM!')
                 .then(m => {
                     setTimeout(() => {
                         m.delete();
@@ -50,6 +50,6 @@ module.exports.run = async (client, msg, args, config) => {
 };
 
 module.exports.help = {
-    name: `hulu`,
-    description: `Sends you a Hulu Premium account!`
+    name: `cod`,
+    description: `Sends you a cod account!`
 };
